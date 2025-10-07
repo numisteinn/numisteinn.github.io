@@ -20,25 +20,6 @@ a:hover {
   color: var(--accent);
 }
 
-#theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: var(--bg-element);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-#theme-toggle:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-active);
-}
-
 footer {
   text-align: center;
   margin-top: 2em;

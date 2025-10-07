@@ -4,18 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Númi Steinn Baldursson</title>
-    <script>
-      if (
-        window.matchMedia("(prefers-color-scheme: dark)").media === "not all"
-      ) {
-        // If `prefers-color-scheme` is not supported, fall back to light mode.
-        document.documentElement.style.display = "none";
-        document.head.insertAdjacentHTML(
-          "beforeend",
-          '<link rel="stylesheet" href="light.css" onload="document.documentElement.style.display = \'\'">',
-        );
-      }
-    </script>
+    <script src="theme-loader.js"></script>
     <link
       rel="stylesheet"
       href="dark.css"
@@ -45,16 +34,5 @@
     </p>
     <p>My resume <a href="./cv.html">can be found here</a>.</p>
     <footer>Last updated: October 2025</footer>
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="white"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="black"
-    />
-    <script src="theme-toggle.js"></script>
   </body>
 </html>
