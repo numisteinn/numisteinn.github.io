@@ -1,35 +1,3 @@
-:root {
-  /* Backgrounds */
-  --bg: #121212;
-  --bg-panel: #141414;
-  --bg-element: #1e1e1e;
-  --bg-subtle: #282828;
-  --bg-hover: #323232;
-  --bg-active: #3c3c3c;
-
-  /* Borders */
-  --border: #484848;
-  --border-active: #606060;
-  --border-subtle: #3c3c3c;
-
-  /* Text */
-  --text: #eeeeee;
-  --text-muted: #808080;
-
-  /* Theme colors */
-  --primary: #fab283;
-  --primary-bright: #ffc09f;
-  --secondary: #5c9cf5;
-  --accent: #9d7cd8;
-
-  /* Semantic */
-  --red: #e06c75;
-  --orange: #f5a742;
-  --green: #7fd88f;
-  --cyan: #56b6c2;
-  --yellow: #e5c07b;
-}
-
 html {
   font-family: ui-sans-serif, system-ui, sans-serif;
   background: var(--bg);
@@ -50,4 +18,11 @@ a:visited {
 
 a:hover {
   color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  margin-top: 2em;
+  font-size: 0.9em;
+  color: var(--text-muted);
 }

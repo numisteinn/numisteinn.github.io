@@ -1,0 +1,30 @@
+:root {
+  /* Backgrounds */
+  --bg: #ffffff;
+  --bg-panel: #fafafa;
+  --bg-element: #f5f5f5;
+  --bg-subtle: #eeeeee;
+  --bg-hover: #e8e8e8;
+  --bg-active: #e0e0e0;
+
+  /* Borders */
+  --border: #d0d0d0;
+  --border-active: #b0b0b0;
+  --border-subtle: #e0e0e0;
+
+  /* Text */
+  --text: #171717;
+  --text-muted: #444444;
+
+  /* Theme colors */
+  --primary: #e37e44;
+  --secondary: #4285f4;
+  --accent: #8b5fbf;
+
+  /* Semantic */
+  --red: #d32f2f;
+  --orange: #f57c00;
+  --green: #388e3c;
+  --cyan: #0097a7;
+  --yellow: #f9a825;
+}
