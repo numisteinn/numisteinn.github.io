@@ -1,11 +1,11 @@
 :root {
   /* Backgrounds */
-  --bg: #ffffff;
-  --bg-panel: #fafafa;
-  --bg-element: #f5f5f5;
-  --bg-subtle: #eeeeee;
-  --bg-hover: #e8e8e8;
-  --bg-active: #e0e0e0;
+  --bg: #faf9f7;
+  --bg-panel: #f8f7f5;
+  --bg-element: #f3f2f0;
+  --bg-subtle: #edecea;
+  --bg-hover: #e7e6e3;
+  --bg-active: #e1e0dd;
 
   /* Borders */
   --border: #d0d0d0;
