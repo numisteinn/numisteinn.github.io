@@ -279,27 +279,28 @@
         </h4>
         <p>
           <strong>Project:</strong>
-          <em>Conformal Error Control for Multi-probe LSH</em><br />
+          <em>Conformal Risk Control for Annoy</em><br />
           Developing a statistical controller that brings rigorous reliability
-          to approximate nearest-neighbor search with the <a href="https://datasystems.nu/">Data Systems Lab</a> at KTH. By wrapping
-          <strong>FAISS</strong> with <strong>Conformal Prediction</strong>, the
-          framework dynamically adjusts search depth to guarantee a target
-          recall rate.
+          to approximate nearest-neighbor search with the <a href="https://datasystems.nu/">Data Systems Lab</a> at KTH. By framing
+          <strong><a href="https://github.com/spotify/annoy">Annoy</a></strong> as a multi-label classification problem and applying
+          <strong>Conformal Prediction</strong>, the framework provides formal guarantees on recall
+          while adaptively minimizing computational cost.
         </p>
         <ul>
           <li>
-            <strong>The Problem:</strong> Traditional vector search (LSH) is
-            fast but lacks formal guarantees, often leading to "silent" data
-            misses.
+            <strong>The Problem:</strong> Traditional ANN algorithms are fast but lack
+            statistical guarantees, often leading to "silent" data misses in production.
           </li>
           <li>
-            <strong>The Solution:</strong> An adaptive system that provides
-            distribution-free error bounds while minimizing computational cost.
+            <strong>The Solution:</strong> Using <code>search_k</code> as the calibration parameter
+            (the number of nodes visited during search), we apply Conformal Risk Control to find
+            a non-conformity threshold that guarantees the expected false negative rate is below
+            <em>&alpha;</em>.
           </li>
           <li>
-            <strong>Impact:</strong> Enables the safe use of high-scale
-            similarity search in production environments where accuracy is
-            mission-critical.
+            <strong>Impact:</strong> Enables adaptive search where harder queries automatically
+            use more computational budget while easier queries remain fast—all with provable
+            distribution-free guarantees.
           </li>
         </ul>
 
