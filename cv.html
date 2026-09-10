@@ -16,8 +16,16 @@
       media="(prefers-color-scheme: light)"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="orb.css" />
   </head>
   <body>
+    <figure class="silver-orb silver-orb-traveler" aria-label="Interactive silver orb following your reading progress">
+      <div class="silver-orb-stage">
+        <img class="silver-orb-poster" src="assets/orb-poster.png" alt="A floating orb of polished silver" width="640" height="480" />
+        <div class="silver-orb-drag" role="group" tabindex="0" aria-label="Rotate the silver orb. Drag or use the arrow keys." aria-describedby="orb-hint" hidden></div>
+        <span class="silver-orb-hint" id="orb-hint" role="tooltip">Drag to rotate · Scroll to ripple</span>
+      </div>
+    </figure>
     <div class="resume">
       <h1>Númi Steinn Baldursson</h1>
       <section id="numi-steinn">
@@ -73,12 +81,11 @@
         <h2>About</h2>
         <p>
           Software engineer with experience in distributed systems, machine
-          learning, and full-stack development. Currently pursuing M.Sc. in
-          Software Engineering of Distributed Systems at KTH Royal Institute of
-          Technology, completing thesis on adaptive vector search with formal
-          guarantees with the
-          <a href="https://datasystems.nu/">Data Systems Lab</a> (expected
-          summer 2026).
+          learning, and full-stack development. Holds an M.Sc. in Software
+          Engineering of Distributed Systems from KTH Royal Institute of
+          Technology, with a thesis on adaptive vector search with formal
+          guarantees completed with the
+          <a href="https://datasystems.nu/">Data Systems Lab</a>.
         </p>
       </section>
       <hr />
@@ -116,6 +123,31 @@
       <hr />
       <section id="professional-experience">
         <h2>Professional Experience</h2>
+
+        <h3>
+          <a href="https://getsweeply.com/">Sweeply</a> | Reykjavík, Iceland
+        </h3>
+        <h4>Backend Software Engineer | 2026–Present</h4>
+        <ul>
+          <li>
+            Architecting a unified property management system integration
+            framework in <strong>TypeScript</strong>, with reusable abstractions
+            for third-party <strong>GraphQL</strong>, <strong>REST</strong>, and
+            <strong>webhook</strong> integrations.
+          </li>
+          <li>
+            Implementing asynchronous message queues, rate limiting, and retry
+            logic to improve the reliability and scalability of external
+            integrations.
+          </li>
+          <li>
+            Building event-driven backend services with
+            <strong>Google Cloud Pub/Sub</strong>,
+            <strong>Cloud Functions</strong>, and <strong>Firestore</strong>;
+            optimizing data models and access patterns to reduce database costs
+            and improve operational reliability.
+          </li>
+        </ul>
 
         <h3>
           <a href="https://payanalytics.com">PayAnalytics</a> | Reykjavík,
@@ -174,8 +206,7 @@
 
         <h3><a href="https://www.kth.se/en">KTH Royal Institute of Technology</a> | Stockholm, Sweden</h3>
         <h4>
-          M.Sc. Software Engineering of Distributed Systems | 2024–2026
-          (projected)
+          M.Sc. Software Engineering of Distributed Systems | 2024–June 2026
         </h4>
         <ul>
           <li>
@@ -277,8 +308,7 @@
 
         <h4>
           Master Thesis: Reliable & Adaptive Vector Search with the
-          <a href="https://datasystems.nu/">Data Systems Lab</a> (projected
-          summer 2026)
+          <a href="https://datasystems.nu/">Data Systems Lab</a>
         </h4>
         <p>
           <strong>Project:</strong>
@@ -354,5 +384,6 @@
       <footer></footer>
       <script src="footer.js"></script>
     </div>
+    <script type="module" src="assets/orb.js"></script>
   </body>
 </html>

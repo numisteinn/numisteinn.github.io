@@ -1,0 +1,123 @@
+.silver-orb {
+  margin: 1.5em 0 2em;
+}
+
+.silver-orb-stage {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 4 / 3;
+  margin: auto;
+}
+
+.silver-orb-stage canvas,
+.silver-orb-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.silver-orb-stage canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.silver-orb[data-ready] .silver-orb-poster {
+  visibility: hidden;
+}
+
+.silver-orb-drag {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 62%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.silver-orb-drag[data-dragging] {
+  cursor: grabbing;
+}
+
+.silver-orb-hint {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 3px);
+  width: max-content;
+  max-width: 100%;
+  text-align: center;
+  font-size: 0.7em;
+  color: var(--text);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 160ms;
+}
+
+.silver-orb[data-ready] .silver-orb-drag:focus-visible + .silver-orb-hint {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+@media (hover: hover) {
+  .silver-orb[data-ready] .silver-orb-drag:hover:not([data-dragging]) + .silver-orb-hint {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+}
+
+.silver-orb-drag:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .silver-orb-hint { transition: none; }
+}
+
+/* The CV orb follows reading progress in its own side space. */
+.silver-orb-traveler {
+  position: fixed;
+  top: 24px;
+  right: 8px;
+  width: clamp(400px, 42vw, 680px);
+  pointer-events: none;
+  margin: 0;
+  transform: translate3d(0, var(--orb-travel, 0px), 0) scale(var(--orb-scale, 1));
+  transform-origin: top center;
+  z-index: 1;
+}
+
+.silver-orb-traveler .silver-orb-drag { pointer-events: auto; }
+
+.silver-orb-traveler .silver-orb-hint {
+  font-size: calc(12px * var(--orb-inverse-scale, 1));
+  width: calc(220px * var(--orb-inverse-scale, 1));
+  max-width: none;
+  line-height: 1.5;
+}
+
+@media (max-width: 1150px) {
+  html:has(.silver-orb-traveler) {
+    padding-right: 100px;
+  }
+
+  .silver-orb-traveler {
+    right: 0;
+    width: 260px;
+  }
+
+  .resume { overflow-wrap: anywhere; padding-top: 170px; }
+  .resume #numi-steinn td:first-child { white-space: nowrap; }
+}
+
+@media print {
+  .silver-orb { display: none; }
+  html:has(.silver-orb-traveler) { padding-right: 1em; }
+  .resume { padding-top: 0; }
+}

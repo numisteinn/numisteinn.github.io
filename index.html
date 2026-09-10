@@ -17,16 +17,28 @@
       media="(prefers-color-scheme: light)"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="orb.css" />
   </head>
   <body>
     <h1>Númi Steinn Baldursson</h1>
     <p>
-      I'm Númi Steinn, currently studying Software Engineering of Distributed
-      Systems at KTH Royal Institute of Technology in Stockholm, Sweden.
+      I'm Númi Steinn, a Backend Software Engineer at
+      <a href="https://getsweeply.com/">Sweeply</a> in Reykjavík, Iceland. I
+      build event-driven backend services and integrations with property
+      management systems.
     </p>
+    <figure class="silver-orb" aria-label="Interactive liquid silver orb">
+      <div class="silver-orb-stage">
+        <img class="silver-orb-poster" src="assets/orb-poster.png" alt="A floating orb of polished, imperfect silver" width="640" height="480" />
+        <div class="silver-orb-drag" role="group" tabindex="0" aria-label="Rotate the silver orb. Drag or use the arrow keys." aria-describedby="orb-hint" hidden></div>
+        <span class="silver-orb-hint" id="orb-hint" role="tooltip">Drag to rotate · Scroll to ripple</span>
+      </div>
+    </figure>
     <p>
-      Working on my master's thesis on adaptive vector search with formal
-      guarantees with the <a href="https://datasystems.nu/">Data Systems Lab</a>, finishing summer 2026.
+      I graduated from KTH Royal Institute of Technology in June 2026 with an
+      M.Sc. in Software Engineering of Distributed Systems. I completed my
+      thesis on adaptive vector search with formal guarantees with the
+      <a href="https://datasystems.nu/">Data Systems Lab</a>.
     </p>
     <p>
       Previously, a Software Engineer at
@@ -38,5 +50,6 @@
     <p>My resume <a href="./cv.html">can be found here</a>.</p>
     <footer></footer>
     <script src="footer.js"></script>
+    <script type="module" src="assets/orb.js"></script>
   </body>
 </html>

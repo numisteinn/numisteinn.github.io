@@ -1,0 +1,11 @@
+{
+  "name": "numisteinn-personal-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:orb": "esbuild orb/orb.js --bundle --minify --format=esm --target=es2022 --outfile=assets/orb.js --legal-comments=linked",
+    "test:orb": "node scripts/verify-orb.mjs"
+  },
+  "dependencies": { "three": "0.180.0" },
+  "devDependencies": { "esbuild": "^0.25.0", "@playwright/test": "^1.55.0" }
+}
