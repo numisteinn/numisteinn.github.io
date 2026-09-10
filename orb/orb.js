@@ -7,7 +7,14 @@ const figure = document.querySelector(".silver-orb");
 if (figure) {
   if (figure.classList.contains("silver-orb-traveler")) {
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    const headerLayout = matchMedia("(max-width: 760px)");
     function updateTravel() {
+      if (headerLayout.matches) {
+        figure.style.setProperty("--orb-scale", "1");
+        figure.style.setProperty("--orb-inverse-scale", "1");
+        figure.style.setProperty("--orb-travel", "0px");
+        return;
+      }
       const range = Math.max(
         1,
         document.documentElement.scrollHeight - innerHeight,
@@ -30,6 +37,7 @@ if (figure) {
     window.addEventListener("scroll", updateTravel, { passive: true });
     window.addEventListener("resize", updateTravel);
     preference.addEventListener("change", updateTravel);
+    headerLayout.addEventListener("change", updateTravel);
     // Expanded course listings change the document's scroll range.
     new ResizeObserver(updateTravel).observe(document.body);
     updateTravel();

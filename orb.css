@@ -116,6 +116,24 @@
   .resume #numi-steinn td:first-child { white-space: nowrap; }
 }
 
+@media (max-width: 760px) {
+  html:has(.silver-orb-traveler) {
+    padding-right: 1em;
+  }
+
+  .silver-orb-traveler {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 360px);
+    margin: 0 auto;
+    transform: none;
+    z-index: auto;
+  }
+
+  .resume { padding-top: 0; }
+}
+
 @media print {
   .silver-orb { display: none; }
   html:has(.silver-orb-traveler) { padding-right: 1em; }

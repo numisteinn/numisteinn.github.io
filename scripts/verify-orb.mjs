@@ -77,6 +77,22 @@ try {
     const start = await orb.boundingBox();
     const hintStart = await page.locator('.silver-orb-hint').boundingBox();
     await page.screenshot({ path: `.orb-review/${name}-top.png` });
+    if (viewport.width <= 760) {
+      const heading = await page.locator('h1').boundingBox();
+      const resume = await page.locator('.resume').boundingBox();
+      assert.ok(start.y + start.height <= heading.y, 'Mobile orb sits above the name');
+      assert.ok(resume.width > viewport.width - 60, 'Mobile CV uses full text width');
+      await page.evaluate(() => window.scrollTo(0, 80));
+      await page.waitForFunction(() => document.querySelector('.silver-orb').dataset.motion === 'rippling');
+      await page.evaluate(() => window.scrollTo(0, 1000));
+      await page.waitForFunction(() => document.querySelector('.silver-orb').dataset.visible === 'false');
+      const offscreen = await orb.boundingBox();
+      assert.ok(offscreen.y + offscreen.height < 0, 'Mobile orb scrolls away');
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      await page.screenshot({ path: `.orb-review/${name}-middle.png` });
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForFunction(() => document.querySelector('.silver-orb').dataset.visible === 'true');
+    } else {
     await page.evaluate(() => window.scrollTo(0, (document.documentElement.scrollHeight - innerHeight) / 2));
     await page.waitForFunction(() => document.querySelector('.silver-orb').dataset.motion === 'rippling');
     const middle = await orb.boundingBox();
@@ -96,12 +112,13 @@ try {
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForTimeout(100);
     assert.ok(Math.abs((await orb.boundingBox()).width - start.width) < 1, 'Returning to the top restores its size');
+    }
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.waitForFunction(() => document.querySelector('.silver-orb').style.getPropertyValue('--orb-travel') === '0px');
     await page.emulateMedia({ media: 'print' });
     assert.equal(await orb.isVisible(), false);
     assert.deepEqual(errors, []);
-    console.log(`${name}: scroll travel, ripples, clear text, reduced motion, and print passed`);
+    console.log(`${name}: ${viewport.width <= 760 ? 'header placement and scroll-away' : 'scroll travel and shrinking'}, ripples, reduced motion, and print passed`);
     await page.close();
   }
 
