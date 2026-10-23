@@ -1,0 +1,76 @@
+.thesis-search {
+  --thesis-signal: color-mix(in srgb, var(--primary) 80%, var(--text));
+  --thesis-ease: cubic-bezier(.16, 1, .3, 1);
+  margin: 2em 0;
+}
+.thesis-search figcaption { margin-bottom: .5em; }
+.thesis-risk-options { display: flex; gap: .5em; margin-bottom: 1.25em; }
+.thesis-risk-options label {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 60px;
+  min-height: 44px;
+  padding: 0 .75em;
+  border-radius: 4px;
+  background: var(--bg-element);
+  cursor: pointer;
+  font-size: .85em;
+}
+.thesis-risk-options input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.thesis-risk-options label:hover { background: var(--bg-hover); }
+.thesis-risk-options label:has(input:checked) { background: var(--bg-active); box-shadow: inset 0 -2px var(--thesis-signal); }
+.thesis-risk-options label:has(input:focus-visible) { outline: 2px solid var(--text); outline-offset: 3px; }
+.thesis-map { display: block; width: min(100%, 360px); margin: 0 auto; overflow: visible; }
+.thesis-regions polygon {
+  fill: transparent;
+  stroke: var(--border);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  transition: fill 400ms var(--thesis-ease);
+}
+.thesis-points circle { fill: var(--text-muted); opacity: .55; }
+.thesis-points .thesis-match {
+  fill: var(--bg);
+  stroke: var(--thesis-signal);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+  opacity: 1;
+  transition: fill 300ms var(--thesis-ease);
+}
+/* Blue keeps the query apart from the orange matches. */
+.thesis-query { stroke: var(--secondary); stroke-width: 3.5px; stroke-linecap: round; vector-effect: non-scaling-stroke; paint-order: stroke; filter: drop-shadow(0 0 1.5px var(--bg)) drop-shadow(0 0 1.5px var(--bg)); }
+.thesis-tally { display: block; width: 100%; max-width: 420px; margin: 1.5em auto 0; }
+.thesis-tally rect { fill: color-mix(in srgb, var(--thesis-signal) 70%, transparent); transition: fill 300ms var(--thesis-ease); }
+.thesis-readout { text-align: center; font-size: .8em; margin: .5em 0; }
+.thesis-readout span { display: none; }
+.thesis-readout strong { color: var(--thesis-signal); }
+
+/* Each tagged element belongs to the result at that alpha; regions light up in Annoy's visit order. */
+.thesis-search:has(#thesis-risk-10:checked) .thesis-regions .a10,
+.thesis-search:has(#thesis-risk-5:checked) .thesis-regions .a5,
+.thesis-search:has(#thesis-risk-1:checked) .thesis-regions .a1 {
+  fill: color-mix(in srgb, var(--primary) 18%, transparent);
+  transition-delay: calc(var(--step) * 60ms);
+}
+.thesis-search:has(#thesis-risk-10:checked) .thesis-match.a10,
+.thesis-search:has(#thesis-risk-5:checked) .thesis-match.a5,
+.thesis-search:has(#thesis-risk-1:checked) .thesis-match.a1 { fill: var(--thesis-signal); }
+.thesis-search:has(#thesis-risk-10:checked) .thesis-tally .a10,
+.thesis-search:has(#thesis-risk-5:checked) .thesis-tally .a5,
+.thesis-search:has(#thesis-risk-1:checked) .thesis-tally .a1 { fill: var(--bg-active); }
+.thesis-search:has(#thesis-risk-10:checked) .thesis-a10,
+.thesis-search:has(#thesis-risk-5:checked) .thesis-a5,
+.thesis-search:has(#thesis-risk-1:checked) .thesis-a1 { display: inline; }
+
+.thesis-key { display: flex; justify-content: center; gap: .5em 1.25em; flex-wrap: wrap; font-size: .75em; color: var(--text-muted); }
+.thesis-key span { display: inline-flex; align-items: center; gap: .5em; }
+.thesis-key i { box-sizing: border-box; width: 9px; height: 9px; border-radius: 50%; font-style: normal; }
+.thesis-key .thesis-key-query { display: grid; place-items: center; width: auto; height: auto; color: var(--secondary); font-weight: 700; }
+.thesis-key .thesis-key-found { background: var(--thesis-signal); }
+.thesis-key .thesis-key-missed { border: 1.5px solid var(--thesis-signal); }
+@media (prefers-reduced-motion: reduce) {
+  .thesis-search * { transition: none !important; }
+}
+@media print { .thesis-search { display: none; } }
