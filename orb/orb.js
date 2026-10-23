@@ -82,7 +82,7 @@ async function startOrb() {
   let environment;
   try {
     const texture = await new RGBELoader().loadAsync(
-      new URL("./studio-small-09-1k.hdr", import.meta.url).href,
+      new URL("./studio-small-09-512.hdr", import.meta.url).href,
     );
     texture.mapping = THREE.EquirectangularReflectionMapping;
     environment = pmrem.fromEquirectangular(texture);

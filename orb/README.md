@@ -21,7 +21,9 @@ The transparent canvas follows the site's existing light and dark backgrounds. A
 
 ## Assets and licenses
 
-`assets/studio-small-09-1k.hdr` is the 1K version of [Studio Small 09](https://polyhaven.com/a/studio_small_09) by Poly Haven, licensed CC0. It is hosted locally. Three.js is MIT licensed; its bundled notice is in `assets/orb.js.LEGAL.txt`. The poster is a render of this scene.
+`assets/studio-small-09-512.hdr` is a 512 × 256 version of [Studio Small 09](https://polyhaven.com/a/studio_small_09) by Poly Haven, licensed CC0. It is hosted locally. The smaller image preserves HDR lighting while reducing the reflection download. Three.js is MIT licensed; its bundled notice is in `assets/orb.js.LEGAL.txt`. The poster is a render of this scene.
+
+The reflection image was reduced from the 1K source by averaging each 2 × 2 block in linear floating-point RGB, then encoding as Radiance RGBE. Keep floating-point values throughout conversion: an ordinary image resize can clip the HDR highlights.
 
 The orb makes no third-party network requests. Existing site fonts and other page resources retain their own loading behavior.
 
