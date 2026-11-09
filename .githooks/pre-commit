@@ -1,0 +1,8 @@
+#!/bin/sh
+# Write the current month into the footer of each staged HTML page.
+stamp="Last updated: $(LC_ALL=C date '+%B %Y')"
+git diff --cached --name-only --diff-filter=ACM -- '*.html' | while IFS= read -r file; do
+  grep -q '<footer>' "$file" || continue
+  sed -i.bak "s|<footer>.*</footer>|<footer>$stamp</footer>|" "$file" && rm -f "$file.bak"
+  git add "$file"
+done
