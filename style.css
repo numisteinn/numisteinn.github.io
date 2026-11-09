@@ -1,4 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+:root {
+  color-scheme: light dark;
+  --bg: #faf9f7;
+  --bg-element: #f3f2f0;
+  --bg-hover: #e7e6e3;
+  --bg-active: #e1e0dd;
+  --border: #d0d0d0;
+  --text: #171717;
+  --text-muted: #444444;
+  --primary: #e37e44;
+  --secondary: #4285f4;
+  --accent: #8b5fbf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --bg-element: #1e1e1e;
+    --bg-hover: #323232;
+    --bg-active: #3c3c3c;
+    --border: #484848;
+    --text: #eeeeee;
+    --text-muted: #808080;
+    --primary: #fab283;
+    --secondary: #5c9cf5;
+    --accent: #9d7cd8;
+  }
+}
 
 html {
   font-family: 'IBM Plex Mono', monospace;

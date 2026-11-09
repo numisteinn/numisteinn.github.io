@@ -4,20 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Númi Steinn Baldursson</title>
-    <script src="theme-loader.js"></script>
-    <!--  TODO: The theme does not seem to be reactive, find a solution-->
-    <link
-      rel="stylesheet"
-      href="dark.css"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link
-      rel="stylesheet"
-      href="light.css"
-      media="(prefers-color-scheme: light)"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&display=swap" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="orb.css" />
   </head>
   <body>
     <h1>Númi Steinn Baldursson</h1>
@@ -27,13 +17,6 @@
       build event-driven backend services and integrations with property
       management systems.
     </p>
-    <figure class="silver-orb" aria-label="Interactive liquid silver orb">
-      <div class="silver-orb-stage">
-        <img class="silver-orb-poster" src="assets/orb-poster.png" alt="A floating orb of polished, imperfect silver" width="640" height="480" />
-        <div class="silver-orb-drag" role="group" tabindex="0" aria-label="Rotate the silver orb. Drag or use the arrow keys." aria-describedby="orb-hint" hidden></div>
-        <span class="silver-orb-hint" id="orb-hint" role="tooltip">Drag to rotate · Scroll to ripple</span>
-      </div>
-    </figure>
     <p>
       I graduated from KTH Royal Institute of Technology in June 2026 with an
       M.Sc. in Software Engineering of Distributed Systems. I completed my
@@ -49,7 +32,6 @@
     </p>
     <p>My resume <a href="./cv.html">can be found here</a>.</p>
     <footer></footer>
-    <script src="footer.js"></script>
-    <script type="module" src="assets/orb.js"></script>
+    <script src="footer.js" defer></script>
   </body>
 </html>
